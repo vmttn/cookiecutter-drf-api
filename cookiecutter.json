@@ -1,0 +1,11 @@
+{
+    "full_name": "Valentin Matton",
+    "github_username": "vmttn",
+    "project_name": null,
+    "project_slug": "{{ cookiecutter.project_name.lower().replace('-', '_').replace(' ', '-') }}",
+    "version": "0.1.0",
+    "timezone": [
+        "Europe/Paris",
+        "UTC"
+    ]
+}
