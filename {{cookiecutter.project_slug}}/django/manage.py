@@ -3,10 +3,12 @@
 import os
 import sys
 
+from dotenv import find_dotenv, load_dotenv
+
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', '{{ cookiecutter.project_slug }}.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', '{{ cookiecutter.project_slug }}.settings.dev')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -19,4 +21,6 @@ def main():
 
 
 if __name__ == '__main__':
+    # In dev, load env vars from the dotenv file at the project root
+    load_dotenv(find_dotenv())
     main()
