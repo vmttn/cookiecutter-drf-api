@@ -46,7 +46,8 @@ WORKDIR /srv
 
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y curl \
+    && apt-get install -y --no-install-recommends \
+    curl \
     && apt-get autoremove --purge -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
