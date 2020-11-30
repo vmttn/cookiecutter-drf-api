@@ -15,7 +15,8 @@ else
   if [[ "${ENV}" == "dev" ]]; then
     python django/manage.py migrate
     python django/manage.py collectstatic --no-input
-    python django/manage.py runserver
+    python django/manage.py createsuperuser --no-input
+    python django/manage.py runserver 0.0.0.0:8000
   else
     export UWSGI_PROCESSES=${UWSGI_PROCESSES:-5}
     export UWSGI_THREADS=${UWSGI_THREADS:-4}
