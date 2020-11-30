@@ -16,9 +16,10 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# API versioning
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+VERSION_NAME = os.environ.get("VERSION_NAME", None)
+VERSION_SHA = os.environ.get("VERSION_SHA", None)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
@@ -135,3 +136,10 @@ STATIC_ROOT = Path(os.environ.get("STATIC_ROOT", "var/www/static"))
 # Used to access api from third-party domain
 
 CORS_URLS_REGEX = r"^/api/.*$"
+
+# Rest Framework
+# https://www.django-rest-framework.org/api-guide/settings/
+
+REST_FRAMEWORK = {
+    "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],
+}
