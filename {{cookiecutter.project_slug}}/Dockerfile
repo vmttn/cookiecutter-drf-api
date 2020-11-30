@@ -54,7 +54,6 @@ RUN apt-get update \
 
 RUN groupadd uwsgi
 RUN useradd --no-log-init -g uwsgi uwsgi
-USER uwsgi
 
 # Copy venv with compiled dependencies
 COPY --chown=uwsgi:uwsgi --from=compile-image /srv/venv /srv/venv
@@ -64,6 +63,7 @@ COPY --chown=uwsgi:uwsgi django /srv/django
 COPY --chown=uwsgi:uwsgi tests /srv/tests
 RUN chmod +x docker-entrypoint.sh
 
+USER uwsgi
 EXPOSE 8000
 
 HEALTHCHECK --start-period=1m \

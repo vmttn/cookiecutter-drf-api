@@ -125,7 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
-
+STATIC_ROOT = Path(os.environ.get("STATIC_ROOT", "var/www/static"))
 
 # CorsHeaders
 # Used to access api from third-party domain

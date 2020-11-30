@@ -1,14 +1,15 @@
 # Python
 *.py[cod]
-__pycache__
+__pycache__/
 
 # Django
 db.sqlite3
 
 # VSCode
-.vscode
+.vscode/
 !.vscode/settings.json
 
 # Misc
 *.env
 !.template.env
+.tmp/
