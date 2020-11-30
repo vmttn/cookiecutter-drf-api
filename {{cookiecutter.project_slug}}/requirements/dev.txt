@@ -1,4 +1,4 @@
 -r tests.txt
 
 tox==3.20.1
-bandit==1.6.2
+pre-commit==2.8.1
