@@ -9,13 +9,16 @@ set -e
 export DJANGO_SETTINGS_MODULE={{ cookiecutter.project_slug }}.settings."${ENV:-prod}"
 export STATIC_ROOT=/var/www/static
 
-python django/manage.py migrate
-python django/manage.py collectstatic --no-input
-
-if [[ "${ENV}" == "dev" ]]; then
-  python django/manage.py runserver 0.0.0.0:8000
+if [[ "$#" -gt 0 ]]; then
+  python django/manage.py "$@"
 else
-  export UWSGI_PROCESSES=${UWSGI_PROCESSES:-5}
-  export UWSGI_THREADS=${UWSGI_THREADS:-4}
-  uwsgi --ini uwsgi.ini
+  if [[ "${ENV}" == "dev" ]]; then
+    python django/manage.py migrate
+    python django/manage.py collectstatic --no-input
+    python django/manage.py runserver
+  else
+    export UWSGI_PROCESSES=${UWSGI_PROCESSES:-5}
+    export UWSGI_THREADS=${UWSGI_THREADS:-4}
+    uwsgi --ini uwsgi.ini
+  fi
 fi
