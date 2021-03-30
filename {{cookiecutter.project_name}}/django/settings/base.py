@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     # 1st parties
-    "core",
+    "meta",
 ]
 
 MIDDLEWARE = [
