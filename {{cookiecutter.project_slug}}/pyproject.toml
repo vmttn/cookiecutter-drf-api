@@ -27,5 +27,5 @@ exclude = '''
     | .*/migrations/
 )
 '''
-line-lenght = 119
+line-length = 119
 target-version = ["py38"]
