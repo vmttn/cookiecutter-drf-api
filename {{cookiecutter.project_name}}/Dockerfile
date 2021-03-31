@@ -63,6 +63,11 @@ COPY --chown=uwsgi:uwsgi django /srv/django
 COPY --chown=uwsgi:uwsgi tests /srv/tests
 RUN chmod +x docker-entrypoint.sh
 
+RUN mkdir -p /var/www
+RUN chown uwsgi:uwsgi /var/www
+
+VOLUME /var/www
+
 USER uwsgi
 EXPOSE 8000
 

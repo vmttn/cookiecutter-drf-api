@@ -30,7 +30,7 @@ services:
       - DJANGO_SUPERUSER_EMAIL=${DJANGO_SUPERUSER_EMAIL}
       - DJANGO_SUPERUSER_PASSWORD=${DJANGO_SUPERUSER_PASSWORD}
     volumes:
-      - ${FILES_ROOT_DIR}:/var/www
+      - files-data:/var/www
 
   db:
     image: postgres:12
@@ -41,3 +41,6 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
+volumes:
+  files-data:
