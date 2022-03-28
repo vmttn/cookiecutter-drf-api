@@ -6,7 +6,7 @@ force_grid_wrap = 0
 include_trailing_comma = true
 indent = 4
 known_django = "django"
-known_first_party = "common,meta"
+known_first_party = "common,meta,users"
 line_length = 119
 profile = "black"
 multi_line_output = 5
@@ -27,3 +27,12 @@ exclude = '''
 '''
 line-length = 119
 target-version = ["py39"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "settings.base"
+pythonpaths = "django"
+testpaths = "tests"
+markers = '''
+    as_user: force authenticate the api_client fixture to the user fixure
+    as_other_user: force authenticate the api_client fixture to the other_user fixture
+'''
