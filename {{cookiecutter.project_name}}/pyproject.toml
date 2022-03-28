@@ -1,15 +1,14 @@
 [tool.isort]
 atomic = true
 combine_star = true
-default_section = "FIRSTPARTY"
 ensure_newline_before_comments = true
 force_grid_wrap = 0
 include_trailing_comma = true
 indent = 4
 known_django = "django"
 known_first_party = "common,meta"
-known_third_party = "dotenv,rest_framework"
 line_length = 119
+profile = "black"
 multi_line_output = 5
 sections = "FUTURE,STDLIB,THIRDPARTY,DJANGO,FIRSTPARTY,LOCALFOLDER"
 skip_gitignore = true
@@ -24,8 +23,7 @@ exclude = '''
         | \.venv
         | __pycache__
     )/
-    | .*/migrations/
 )
 '''
 line-length = 119
-target-version = ["py38"]
+target-version = ["py39"]

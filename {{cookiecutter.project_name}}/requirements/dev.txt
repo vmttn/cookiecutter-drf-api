@@ -1,4 +1,5 @@
 -r tests.txt
 
-tox==3.24.5
+black==22.1.0
 pre-commit==2.17.0
+tox==3.24.5
