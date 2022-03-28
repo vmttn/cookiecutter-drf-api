@@ -1,4 +1,4 @@
 -r tests.txt
 
-tox==3.20.1
-pre-commit==2.8.1
+tox==3.24.5
+pre-commit==2.17.0
